@@ -1,0 +1,41 @@
+.form {
+    /* border-left: 2px solid #232323; */
+    padding: 10px 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.fieldsbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.label {
+    display: flex;
+    gap: 8px;
+}
+
+button {
+    height: 32px;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    border-radius: 4px;
+    background-color:dodgerblue ;
+    color: whitesmoke;
+    transition: background-color 250ms ease-in-out;
+}
+
+button:hover {
+    background-color:#232323;
+    font-weight: 600;
+}
+
+button:active {
+    background-color:aliceblue;
+    color: #232323;
+    border: 0.5px solid #232323;
+}
