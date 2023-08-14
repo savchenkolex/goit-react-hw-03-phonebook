@@ -14,20 +14,15 @@ export default class BaseForm extends Component {
     this.setState({ [name]: value });
   };
 
-  submitHandler(event) {
+  submitHandler = (event) => {
     event.preventDefault();
     this.props.addContact(this.state);
+    this.setState({ name: '', number: '' });
   }
 
   render() {
     return (
-      <form
-        className={css.form}
-        onSubmit={event => {
-          this.submitHandler(event);
-          this.setState({ name: '', number: '' });
-        }}
-      >
+      <form className={css.form} onSubmit={this.submitHandler}>
         <div className={css.fieldsbox}>
           <label className={css.label}>
             <span>Name:</span>
@@ -51,9 +46,7 @@ export default class BaseForm extends Component {
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
-              onChange={event => {
-                this.inputHandler(event);
-              }}
+              onChange={this.inputHandler}
               value={this.state.number}
             />
           </label>

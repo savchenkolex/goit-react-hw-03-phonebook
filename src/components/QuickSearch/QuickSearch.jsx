@@ -3,7 +3,6 @@ import css from './QuickSearch.module.css';
 
 export default function QuickSearch(props) {
   return (
-    <form autoComplete="off">
         <input
             className={css["filter-input"]}
           type="text"
@@ -13,7 +12,6 @@ export default function QuickSearch(props) {
           }}
           placeholder='Type for quick search'
         />
-    </form>
   );
 }
 

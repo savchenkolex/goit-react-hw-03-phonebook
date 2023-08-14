@@ -38,6 +38,12 @@ class App extends Component {
     });
   };
 
+  inputHandler = event => {
+    const { name, value } = event.target;
+
+    this.setState({ [name]: value });
+  };
+
   filterFn = () => {
     const contacts = this.state.contacts;
     return contacts.filter(({ name }) => {
