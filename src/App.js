@@ -58,11 +58,12 @@ class App extends Component {
   };
 
   componentDidMount() {
-    
-    if (localStorage.getItem('contacts')) {
-      this.setState({ contacts: JSON.parse(localStorage.getItem('contacts')) });
-    } else {
+    const isContactsInLS = localStorage.getItem('contacts');
+
+    if (isContactsInLS === 'undefined' || isContactsInLS === null) {
       localStorage.setItem('contacts', JSON.stringify(contactsdb));
+    } else if (isContactsInLS) {
+      this.setState({ contacts: JSON.parse(localStorage.getItem('contacts')) });
     }
   }
 
