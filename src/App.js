@@ -61,7 +61,9 @@ class App extends Component {
     const isContactsInLS = localStorage.getItem('contacts');
 
     if (isContactsInLS === 'undefined' || isContactsInLS === null) {
-      localStorage.setItem('contacts', JSON.stringify(contactsdb));
+      const initialContacts = JSON.stringify(contactsdb);
+      localStorage.setItem('contacts', initialContacts);
+      this.setState({contacts: initialContacts});
     } else if (isContactsInLS) {
       this.setState({ contacts: JSON.parse(localStorage.getItem('contacts')) });
     }
