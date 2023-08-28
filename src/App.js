@@ -5,7 +5,6 @@ import Section from './utils/Section/Section';
 import HeaderSection from './components/HeaderSection/HeaderSection';
 import ListContacts from './components/ListContacts/ListContacts';
 import QuickSearch from './components/QuickSearch/QuickSearch';
-import { contactsdb } from './utils/contacts';
 
 class App extends Component {
   state = {
@@ -60,10 +59,7 @@ class App extends Component {
   componentDidMount() {
     const isContactsInLS = localStorage.getItem('contacts');
 
-    if (isContactsInLS === 'undefined' || isContactsInLS === null) {
-      
-      this.setState({contacts: contactsdb});
-    } else if (isContactsInLS) {
+    if (isContactsInLS) {
       this.setState({ contacts: JSON.parse(localStorage.getItem('contacts')) });
     }
   }
