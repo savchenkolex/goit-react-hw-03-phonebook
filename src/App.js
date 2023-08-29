@@ -13,7 +13,7 @@ class App extends Component {
   };
 
   addContact = data => {
-    const contacts = this.state.contacts;
+    const { contacts } = this.state;
     const isExists = contacts.some(({ name }) => {
       return name === data.name;
     });
@@ -27,7 +27,7 @@ class App extends Component {
       return {
         contacts: [
           ...pervState.contacts,
-          { id: nanoid(), name: data.name, number: data.number },
+          { id: nanoid(), ...data },
         ],
       };
     });
